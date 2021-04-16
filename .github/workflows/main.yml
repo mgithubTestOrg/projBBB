@@ -22,4 +22,7 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
-          curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/mgithubTestRepo/projAAA/dispatches --data '{"event_type": "push"}'
+          curl -X POST https://api.github.com/repos/mgithubTestOrg/projAAA/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.ACCESS_TOKEN }} \
+          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
