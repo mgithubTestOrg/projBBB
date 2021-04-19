@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
-          ls
+          cat ./.github/workflows/list.txt
           curl -X POST https://api.github.com/repos/mgithubTestOrg/projAAA/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACCESS_TOKEN }} \
