@@ -20,15 +20,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Read file
-        id: repo_list
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: $ {{ github.workspace }}/repo_list.txt
-      - name: Echo repo_list
-        run: echo ${{ steps.repo_list.outputs.content }}
-#       - name: cat file
-#         run: echo $ {{ github.workspace }}/repo_list.txt
+      - name: cat file
+        run: cat $ {{ github.workspace }}/repo_list.txt
       - name: Run a one-line script
         run: |
           curl -X POST https://api.github.com/repos/mgithubTestOrg/projAAA/dispatches \
