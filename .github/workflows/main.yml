@@ -20,9 +20,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Read file
+        id: repo_list
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./repo_list.txt
+      - name: Echo repo_list
+        run: echo ${{ steps.repo_list.outputs.content }}
       - name: Run a one-line script
         run: |
-          cat ${{ env.BASE_DIR }}/repo_list.txt
           curl -X POST https://api.github.com/repos/mgithubTestOrg/projAAA/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACCESS_TOKEN }} \
