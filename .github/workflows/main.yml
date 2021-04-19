@@ -24,7 +24,7 @@ jobs:
         id: repo_list
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./repo_list.txt
+          path: ./package.json
       - name: Echo repo_list
         run: echo ${{ steps.repo_list.outputs.content }}
       - name: Run a one-line script
