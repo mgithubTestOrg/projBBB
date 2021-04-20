@@ -22,7 +22,8 @@ jobs:
     steps:
       - name: Run a one-line script
         env:
-          FILES: projAAA projCCC
+          FILES: projAAA 
+                 projCCC
         run: |
           for f in $FILES
           do
